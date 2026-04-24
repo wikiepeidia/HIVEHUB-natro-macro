@@ -16762,8 +16762,11 @@ nm_GoGather(){
 		nm_PlanterTimeUpdate(FieldName)
 		;whirligig
 		if (WhirligigKey!="None" && (nowUnix()-LastWhirligig)>180
-		&& (!PFieldBoosted || (PFieldBoosted && GatherFieldBoosted))){
+		&& (!PFieldBoosted || (PFieldBoosted && GatherFieldBoosted))
+		&& FieldName!="Trading Hub"){
 			WhirligigReturn()
+		} else if(FieldReturnType="Rejoin") {
+			Rejoin()
 		} else if(FieldReturnType="walk") { ;walk back
 			nm_walkFrom(FieldName)
 			DisconnectCheck()
