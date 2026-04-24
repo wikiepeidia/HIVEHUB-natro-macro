@@ -1508,7 +1508,8 @@ FieldBooster:=Map("pine tree", {booster:"blue", stacks:1}
 	, "pumpkin", {booster:"mountain", stacks:1}
 	, "cactus", {booster:"mountain", stacks:1}
 	, "mountain top", {booster:"none", stacks:0}
-	, "coconut", {booster:"none", stacks:0})
+	, "coconut", {booster:"none", stacks:0}
+	, "trading hub", {booster:"none", stacks:0})
 
 ;Gumdrops carried me, they so pro
 CommandoChickHealth := Map(3, 150
@@ -1803,6 +1804,21 @@ nm_importFieldDefaults()
 		, "shiftlock", 0
 		, "invertFB", 0
 		, "invertLR", 0)
+
+	FieldDefault["Trading Hub"] := Map("pattern", "Squares"
+		, "size","M"
+		, "width",5
+		, "camera","None"
+		, "turns",1
+		, "sprinkler","Center"
+		, "distance",1
+		, "percent",95
+		, "gathertime",300
+		, "convert","Rejoin"
+		, "drift",0
+		, "shiftlock",0
+		, "invertFB",0
+		, "invertLR",0)
 
 	global StandardFieldDefault := ObjFullyClone(FieldDefault)
 
