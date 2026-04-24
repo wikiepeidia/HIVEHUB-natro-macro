@@ -4918,7 +4918,7 @@ nm_PasteGatherSettings(GuiCtrl, *){
 		, "PatternReps", "^[1-9]$"
 		, "PatternShift", "^(0|1)$"
 		, "PatternSize", "i)^(XS|S|M|L|XL)$"
-		, "ReturnType", "i)^(Walk|Reset)$"
+		, "ReturnType", "i)^(Walk|Reset|Rejoin)$"
 		, "RotateDirection", "i)^(None|Left|Right)$"
 		, "RotateTimes", "^[1-4]$"
 		, "SprinklerDist", "^([1-9]|10)$"
@@ -4933,7 +4933,7 @@ nm_PasteGatherSettings(GuiCtrl, *){
 	}
 	obj := json.parse(A_Clipboard)
 	if obj.Has("Name") {
-		if ObjHasValue(fieldnamelist, obj["Name"]) {
+		if ObjHasValue(gatherfieldnamelist, obj["Name"]) {
 			FieldName%i% := obj["Name"]
 			IniWrite obj["Name"], "settings\nm_config.ini", "Gather", "FieldName" i
 			MainGui["FieldName" i].Text := FieldName%i%
