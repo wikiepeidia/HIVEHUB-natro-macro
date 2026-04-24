@@ -4804,7 +4804,7 @@ nm_FieldUntilPack(GuiCtrl, *){
 }
 nm_FieldReturnType(GuiCtrl, *){
 	global
-	static val := ["Walk", "Reset"], l := val.Length
+	static val := ["Walk", "Reset", "Rejoin"], l := val.Length
 	local i, index
 
 	switch GuiCtrl.Name, 0
@@ -4817,7 +4817,7 @@ nm_FieldReturnType(GuiCtrl, *){
 		index := 3
 	}
 
-	i := (FieldReturnType%index% = "Walk") ? 1 : 2
+	i := (FieldReturnType%index% = "Walk") ? 1 : (FieldReturnType%index% = "Reset") ? 2 : 3
 
 	MainGui["FieldReturnType" index].Text := FieldReturnType%index% := val[(GuiCtrl.Name = "FRT" index "Right") ? (Mod(i, l) + 1) : (Mod(l + i - 2, l) + 1)]
 	IniWrite FieldReturnType%index%, "settings\nm_config.ini", "Gather", "FieldReturnType" index
