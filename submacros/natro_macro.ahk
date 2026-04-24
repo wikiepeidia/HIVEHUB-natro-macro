@@ -1,6 +1,6 @@
 /*
 Natro Macro (https://github.com/NatroTeam/NatroMacro)
-Copyright © Natro Team (https://github.com/NatroTeam)
+Copyright ï¿½ Natro Team (https://github.com/NatroTeam)
 
 This file is part of Natro Macro. Our source code will always be open and available.
 
@@ -16,7 +16,7 @@ You should have received a copy of the license along with Natro Macro. If not, p
 ;@Ahk2Exe-SetName Natro Macro
 ;@Ahk2Exe-SetDescription Natro Macro
 ;@Ahk2Exe-SetCompanyName Natro Team
-;@Ahk2Exe-SetCopyright Copyright © Natro Team
+;@Ahk2Exe-SetCopyright Copyright ï¿½ Natro Team
 ;@Ahk2Exe-SetOrigFilename natro_macro.exe
 #MaxThreads 255
 #Requires AutoHotkey v2.0
@@ -2070,6 +2070,7 @@ PopStarActive:=0
 PreviousAction:="None"
 CurrentAction:="Startup"
 fieldnamelist := ["Bamboo","Blue Flower","Cactus","Clover","Coconut","Dandelion","Mountain Top","Mushroom","Pepper","Pine Tree","Pineapple","Pumpkin","Rose","Spider","Strawberry","Stump","Sunflower"]
+gatherfieldnamelist := fieldnamelist.Clone(), gatherfieldnamelist.Push("Trading Hub")
 hotbarwhilelist := ["Never","Always","At Hive","Gathering","Attacking","Microconverter","Whirligig","Enzymes","GatherStart","Snowflake"]
 sprinklerImages := ["saturator"]
 ReconnectDelay:=0
@@ -2615,11 +2616,11 @@ MainGui.Add("Text", "xp yp+60 wp +BackgroundTrans", "2:")
 MainGui.Add("Text", "xp yp+60 wp +BackgroundTrans", "3:")
 MainGui.SetFont("s8 cDefault Norm", "Tahoma")
 
-(GuiCtrl := MainGui.Add("DropDownList", "x18 y57 w106 Disabled vFieldName1", fieldnamelist)).Text := FieldName1, GuiCtrl.OnEvent("Change", nm_FieldSelect1)
+(GuiCtrl := MainGui.Add("DropDownList", "x18 y57 w106 Disabled vFieldName1", gatherfieldnamelist)).Text := FieldName1, GuiCtrl.OnEvent("Change", nm_FieldSelect1)
 SetLoadingProgress(3)
-(GuiCtrl := MainGui.Add("DropDownList", "xp yp+60 wp Disabled vFieldName2", ["None"])).Add(fieldnamelist), GuiCtrl.Text := FieldName2, GuiCtrl.OnEvent("Change", nm_FieldSelect2)
+(GuiCtrl := MainGui.Add("DropDownList", "xp yp+60 wp Disabled vFieldName2", ["None"])).Add(gatherfieldnamelist), GuiCtrl.Text := FieldName2, GuiCtrl.OnEvent("Change", nm_FieldSelect2)
 SetLoadingProgress(6)
-(GuiCtrl := MainGui.Add("DropDownList", "xp yp+60 wp Disabled vFieldName3", ["None"])).Add(fieldnamelist), GuiCtrl.Text := FieldName3, GuiCtrl.OnEvent("Change", nm_FieldSelect3)
+(GuiCtrl := MainGui.Add("DropDownList", "xp yp+60 wp Disabled vFieldName3", ["None"])).Add(gatherfieldnamelist), GuiCtrl.Text := FieldName3, GuiCtrl.OnEvent("Change", nm_FieldSelect3)
 SetLoadingProgress(9)
 
 hBM := Gdip_CreateHBITMAPFromBitmap(bitmaps["savefielddisabled"])
@@ -3057,7 +3058,7 @@ MainGui.SetFont("w700")
 MainGui.Add("GroupBox", "x10 y42 w134 h188 vBugRunGroupBox Hidden", "Bug Run")
 MainGui.SetFont("s8 cDefault Norm", "Tahoma")
 MainGui.Add("CheckBox", "x76 y43 vBugRunCheck Disabled Hidden", "Select All").OnEvent("Click", nm_BugRunCheck)
-MainGui.Add("Text", "x16 y62 +BackgroundTrans Hidden vTextMonsterRespawnPercent", "–       %")
+MainGui.Add("Text", "x16 y62 +BackgroundTrans Hidden vTextMonsterRespawnPercent", "ï¿½       %")
 MainGui.Add("Text", "x52 y55 w80 +BackgroundTrans +Center vTextMonsterRespawn Hidden", "Monster Respawn Time")
 MainGui.Add("Edit", "x24 y61 w18 h16 Limit2 number vMonsterRespawnTime Disabled Hidden", ValidateNumber(&MonsterRespawnTime)).OnEvent("Change", nm_MonsterRespawnTime)
 MainGui.Add("Button", "x128 y63 w12 h14 vMonsterRespawnTimeHelp Disabled Hidden", "?").OnEvent("Click", nm_MonsterRespawnTimeHelp)
