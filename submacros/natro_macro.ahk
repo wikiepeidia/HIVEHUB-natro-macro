@@ -17311,6 +17311,10 @@ nm_setSprinkler(field, loc, dist){
 
 	MoveSpeedFactor:=round(18/MoveSpeedNum, 2)
 
+	if (field="Trading Hub") {
+		return
+	}
+
 	;move to start position
 	if(InStr(loc, "Upper")){
 		nm_Move(flen*MoveSpeedFactor, FwdKey)
