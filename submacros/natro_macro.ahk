@@ -1868,7 +1868,7 @@ nm_LoadFieldDefaults()
 			continue
 
 			default:
-			if (p := InStr(A_LoopField, "="))
+			if (FieldDefault.Has(s) && (p := InStr(A_LoopField, "=")))
 				k := SubStr(A_LoopField, 1, p-1), FieldDefault[s][k] := SubStr(A_LoopField, p+1)
 		}
 	}
