@@ -19524,24 +19524,25 @@ nm_gotoField(location){
 nm_TradingHubPreGatherBypass(){
 	; Trading Hub now needs a post-travel glider hop over the new obstacle before gather starts.
 	send "{space down}"
-	HyperSleep(100)
+	Sleep 100
 	send "{space up}"
-	HyperSleep(200)
+	Sleep 200
 	send "{space down}"
-	HyperSleep(100)
+	Sleep 100
 	send "{space up}"
-	HyperSleep(650)
+	; Adjust this landing delay if the character needs more or less time to settle on top of the obstacle.
+	Sleep 1000
 	send "{space down}"
-	HyperSleep(100)
+	Sleep 100
 	send "{space up}"
-	HyperSleep(200)
+	Sleep 200
 	send "{space down}"
-	HyperSleep(100)
+	Sleep 100
 	send "{space up}"
 	; Adjust this glide hold if the second glider needs more or less airtime over the obstacle.
-	HyperSleep(2000)
+	Sleep 2000
 	send "{space down}"
-	HyperSleep(100)
+	Sleep 100
 	send "{space up}"
 }
 nm_walkFrom(field){
