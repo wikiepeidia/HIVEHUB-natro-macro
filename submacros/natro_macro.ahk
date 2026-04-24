@@ -3769,6 +3769,9 @@ nm_TabGatherUnLock(){
 		MainGui["SaveFieldDefault3"].Enabled := 1
 		MainGui["SaveFieldDefault3"].Value := "HBITMAP:*" hBM
 	}
+	nm_ApplyTradingHubSlotGuard(1)
+	nm_ApplyTradingHubSlotGuard(2)
+	nm_ApplyTradingHubSlotGuard(3)
 	DllCall("DeleteObject", "ptr", hBM)
 }
 nm_TabCollectLock(){
@@ -4526,6 +4529,24 @@ TextExtent(text, textCtrl)
 ValidateNumber(&var, default := 0) => IsNumber(var) ? var : (var := default)
 ValidateInt(&var, default := 0) => IsInteger(var) ? var : (var := default)
 
+nm_ApplyTradingHubSlotGuard(slot){
+	global
+	local fieldName := MainGui["FieldName" slot].Text, slotActive := (slot = 1 || fieldName != "none")
+	if (fieldName = "Trading Hub") {
+		MainGui["FieldDriftCheck" slot].Enabled := 0
+		MainGui["FDCHelp" slot].Enabled := 0
+		MainGui["FSL" slot "Left"].Enabled := 0
+		MainGui["FSL" slot "Right"].Enabled := 0
+		MainGui["FieldSprinklerDist" slot].Enabled := 0
+	} else if slotActive {
+		MainGui["FieldDriftCheck" slot].Enabled := 1
+		MainGui["FDCHelp" slot].Enabled := 1
+		MainGui["FSL" slot "Left"].Enabled := 1
+		MainGui["FSL" slot "Right"].Enabled := 1
+		MainGui["FieldSprinklerDist" slot].Enabled := 1
+	}
+}
+
 ; GATHER TAB
 ; ------------------------
 nm_FieldSelect1(GuiCtrl?, *){
@@ -4539,6 +4560,7 @@ nm_FieldSelect1(GuiCtrl?, *){
 	IniWrite CurrentFieldNum, "settings\nm_config.ini", "Gather", "CurrentFieldNum"
 	MainGui["CurrentField"].Text := FieldName1
 	CurrentField:=FieldName1
+	nm_ApplyTradingHubSlotGuard(1)
 	nm_WebhookEasterEgg()
 }
 nm_FieldSelect2(GuiCtrl?, *){
@@ -4610,6 +4632,7 @@ nm_FieldSelect2(GuiCtrl?, *){
 		nm_FieldDefaults(2)
 		IniWrite FieldName2, "settings\nm_config.ini", "Gather", "FieldName2"
 	}
+	nm_ApplyTradingHubSlotGuard(2)
 	nm_WebhookEasterEgg()
 }
 nm_FieldSelect3(GuiCtrl?, *){
@@ -4675,6 +4698,7 @@ nm_FieldSelect3(GuiCtrl?, *){
 		nm_FieldDefaults(3)
 		IniWrite FieldName3, "settings\nm_config.ini", "Gather", "FieldName3"
 	}
+	nm_ApplyTradingHubSlotGuard(3)
 	nm_WebhookEasterEgg()
 }
 nm_FieldDefaults(num){
