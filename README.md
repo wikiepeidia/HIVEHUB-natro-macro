@@ -42,13 +42,11 @@ The only official sources are:
 An open-source Bee Swarm Simulator macro written in AutoHotkey!<br>
 </div>
 
-
 <a name="installation"><h2>🛠️ Installation</h2></a>
 
 1. Download `Natro_Macro_v#.#.#.zip` from the [latest release][latest-release-link]
 2. Open `Natro_Macro_v#.#.#` and double-click the folder inside
 3. Run `START.bat` and wait for the macro to load
-
 
 <a name="community"><h2>🌎 Community</h2></a>
 
@@ -65,7 +63,6 @@ Discord is our main platform for troubleshooting and update news!
   </picture>
 </a>
 
-
 <a name="contributing"><h2>⌨️ Contributing</h2></a>
 
 Natro Macro is an open-source project. We greatly appreciate all contributions, whether you are helping us fix bugs or suggesting new features. If you want to get started, read our [Contributing Guidelines][contributing-link] first.
@@ -76,7 +73,6 @@ Natro Macro is an open-source project. We greatly appreciate all contributions, 
 
 For discussions, please join us on [Discord][discord-link] instead!
 
-
 <a name="credits"><h2>💝 Credits</h2></a>
 
 Natro Macro wouldn't be possible without the help and inspiration of many extraordinary individuals.<br>
@@ -86,6 +82,14 @@ This repository is a fork/customization of Natro Macro. For the Trading Hub / hu
 
 Thank you all for your hard work and support!
 
+<a name="fork-notes"><h2>🧭 Fork Notes</h2></a>
+
+- Recommended pattern: **XSnake**
+- This fork is currently tuned around **Beesmas 2026** usage because of the present-related flow included here.
+
+<a name="patches"><h2>🩹 Applied Patches</h2></a>
+
+- Includes an OCR patch based on <https://github.com/ManlyTorch/OCR>.
 
 <a name="stars"><h2>🌠 Stars</h2></a>
 
