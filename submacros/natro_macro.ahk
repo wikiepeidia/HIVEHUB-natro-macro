@@ -19540,7 +19540,7 @@ nm_TradingHubPreGatherBypass(){
 	Sleep 100
 	send "{space up}"
 	; Adjust this glide hold if the second glider needs more or less airtime over the obstacle.
-	Sleep 2000
+	Sleep 700
 	send "{space down}"
 	Sleep 100
 	send "{space up}"
